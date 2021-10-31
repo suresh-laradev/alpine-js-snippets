@@ -1,0 +1,237 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpine js</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.17/tailwind.min.css"
+    />
+    <script defer src=".././dist/bundle.js"></script>
+  </head>
+  <body class="bg-yellow-200">
+    <div class="container-lg">
+      <div class="bg-yellow-500 shadow-md w-full mx-auto">
+        <h1 class="text-blue-900 text-2xl text-center p-5">Alpine Js 3.x</h1>
+      </div>
+    </div>
+    <div class="container-lg p-10">
+      <div class="bg-yellow-500 shadow-md max-w-max mx-auto">
+        <h1 class="text-blue-900 text-2xl max-w-prose text-center p-5 m-5">
+          x-data and x-text
+        </h1>
+        <div x-data="{hello:'Suresh'}" class="bg-yellow-200 p-5">
+          <span x-text="hello"></span>
+        </div>
+      </div>
+
+      <!-- Visibility -->
+      <div class="bg-yellow-500 shadow-md max-w-max mx-auto">
+        <h1 class="text-blue-900 text-2xl max-w-prose text-center p-5 m-5">
+          x-data and x-show
+        </h1>
+        <div x-data="{visible:false}" class="bg-yellow-200 p-5">
+          <div x-show="visible">Show aadir</div>
+        </div>
+      </div>
+
+      <!-- array and x-show -->
+      <div class="bg-yellow-500 shadow-md max-w-max mx-auto">
+        <h1 class="text-blue-900 text-2xl max-w-prose text-center p-5 m-5">
+          x-data and x-show using arrays
+        </h1>
+        <div
+          x-data="{records:[1,2,3,4,5,6,7,8,9,10]}"
+          class="bg-yellow-200 p-5"
+        >
+          <div x-show="records.length >= 10">
+            Records valid: <span x-text="records"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- clicking event -->
+      <div class="bg-yellow-500 shadow-md max-w-max mx-auto">
+        <h1 class="text-blue-900 text-2xl max-w-prose text-center p-5 m-5">
+          x-data and x-show using arrays
+        </h1>
+        <div x-data="{show:false}" class="bg-yellow-200 p-5">
+          <button
+            x-on:click="show = true"
+            class="
+              text-yellow-100
+              bg-yellow-500
+              p-2
+              rounded
+              shadow-md
+              hover:shadow-lg
+            "
+          >
+            Show
+          </button>
+          <div x-show="show">Shoe</div>
+        </div>
+      </div>
+
+      <!-- click event with toggle -->
+      <div class="bg-yellow-500 shadow-md max-w-max mx-auto">
+        <h1 class="text-blue-900 text-2xl max-w-prose text-center p-5 m-5">
+          Toggle using x-data x-show x-on:click (@click)
+        </h1>
+        <div x-data="{show:false}" class="bg-yellow-200 p-5">
+          <button
+            x-on:click="show = !show"
+            class="
+              flex
+              items-center
+              justify-center
+              bg-yellow-300
+              h-5
+              w-5
+              p-4
+              rounded-full
+              hover:shadow-md
+            "
+          >
+            <span x-show="show">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                />
+              </svg>
+            </span>
+            <span x-show="!show"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                />
+              </svg>
+            </span>
+          </button>
+          <div x-show="show" class="text-yellow-100">Dark</div>
+          <div x-show="!show" class="text-yellow-900">Light</div>
+        </div>
+      </div>
+
+      <!-- click increament -->
+      <div class="bg-yellow-500 shadow-md max-w-max mx-auto">
+        <h1 class="text-blue-900 text-2xl max-w-prose text-center p-5 m-5">
+          Increament and Decreament
+        </h1>
+        <div class="bg-yellow-200 p-5 text-center">
+          <div x-data="{number: 0}">
+            <button x-on:click="number--">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-yellow-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </button>
+            <button x-on:click="number++">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-yellow-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </button>
+            <div class="flex justify-end p-5">
+              <div
+                x-text="number"
+                class="
+                  flex
+                  bg-yellow-300
+                  h-8
+                  w-8
+                  justify-center
+                  items-center
+                  rounded-full
+                  shadow-lg
+                "
+              ></div>
+            </div>
+
+            <div
+              x-show="number > 10"
+              class="text-yellow-600 text-xl text-right max-w-prose"
+            >
+              > 10 it's a big number
+            </div>
+            <div
+              x-show="number <= 0"
+              class="text-yellow-600 text-xl text-right max-w-prose"
+            >
+              Not a valid number
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- simple model -->
+      <div class="bg-yellow-600 shadow-md max-w-max mx-auto">
+        <h1 class="text-blue-900 text-2xl max-w-prose text-center p-5 m-5">
+          model using x-model, x-data and x-text
+        </h1>
+        <div x-data="{name:''}" class="bg-yellow-200 p-5 text-center">
+          <input
+            type="text"
+            x-model="name"
+            class="
+              bg-yellow-100
+              text-yellow-700
+              p-2
+              rounded
+              focus:outline-none
+              focus:ring-2
+              focus:ring-yellow-300
+              focus:border-transparent
+            "
+            placeholder="Count your text"
+          />
+          <span
+            x-text="name.length"
+            class="text-lg text-yellow-900 px-5"
+          ></span>
+        </div>
+      </div>
+
+      <!-- notfify -->
+    </div>
+    <!-- <script
+      defer
+      src="https://unpkg.com/alpinejs@3.4.2/dist/cdn.min.js"
+    ></script> -->
+  </body>
+</html>
